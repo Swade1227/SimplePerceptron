@@ -20,7 +20,7 @@ class Point {
     if (label == 1) {
       fill (255);
     } else {
-      fill (0);
+      fill (150);
     }
     ellipse(x,y,15,15);
   }
