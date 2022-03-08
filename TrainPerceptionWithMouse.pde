@@ -6,13 +6,13 @@ import java.util.Random;
 */
 
 class Perceptron {
-  float[] weights = new float[2];
+  float[] weights = new float[3];
   //learning rate
   float lr = 0.1;
-  Random random = new Random();
-  int someInt = random.nextInt(3) - 1;
+  float someInt = random(-1, 1);
   //Constructor
-  Perceptron() {
+  Perceptron(int n) {
+    weights = new float[n];
     //Intialize random weights
     for (int i = 0; i < weights.length; i++) {
       weights[i] = someInt; 
@@ -46,4 +46,13 @@ class Perceptron {
       weights[i] += error * inputs[i] * lr;
     }
   }
+  
+  float guessY(float x) {
+    float w0 = weights[0];
+    float w1 = weights[1];
+    float w2 = weights[2];
+    
+    return -(w2/w1) - (w0/w1) * x;
+  }
+  
 }
